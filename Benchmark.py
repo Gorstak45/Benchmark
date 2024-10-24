@@ -14,6 +14,7 @@ def cpu_benchmark():
         print(cpu_percent)
         cpu_scores.append(sum(cpu_percent) / len(cpu_percent))
     avg_cpu_score = sum(cpu_scores) / len(cpu_scores)
+    avg_cpu_score = round(avg_cpu_score, 2)  # Rounding to two decimal places
     print("Average CPU Score:", avg_cpu_score)
     return avg_cpu_score
 
@@ -69,6 +70,7 @@ def ram_benchmark():
         ram_usage.append(ram.percent)
         time.sleep(1)
     avg_ram_score = sum(ram_usage) / len(ram_usage)
+    avg_ram_score = round(avg_ram_score, 2)  # Rounding to two decimal places
     print("Average RAM Score:", avg_ram_score)
     return avg_ram_score
 
@@ -89,6 +91,7 @@ def drive_benchmark():
             print("Percentage:", disk_usage.percent)
             drive_scores.append(disk_usage.percent)
     avg_drive_score = sum(drive_scores) / len(drive_scores)
+    avg_drive_score = round(avg_drive_score, 2)  # Rounding to two decimal places
     print("Average Drive Score:", avg_drive_score)
     return avg_drive_score
 
@@ -98,6 +101,7 @@ def calculate_overall_score(cpu_score, gpu_score, ram_score, drive_score):
         overall_score = (cpu_score + ram_score + drive_score) / 3
     else:
         overall_score = (cpu_score + gpu_score + ram_score + drive_score) / 4
+    overall_score = round(overall_score, 2)  # Rounding to two decimal places
     print("\nOverall Score:", overall_score)
     return overall_score
 
